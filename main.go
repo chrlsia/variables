@@ -7,19 +7,24 @@ import (
 	"os"
 	"time"
 )
+
 const prompt = "and don't type your number in , just press ENTER when ready"
 
 func main() {
 
 	//seed the generator
 	rand.Seed(time.Now().UnixNano())
-	var firstNumber = rand.Intn(8)+2
-	var secondNumber = rand.Intn(8)+2
-	var subtraction = rand.Intn(8)+2
+	var firstNumber = rand.Intn(8) + 2
+	var secondNumber = rand.Intn(8) + 2
+	var subtraction = rand.Intn(8) + 2
 	var answer = firstNumber*secondNumber - subtraction
 
+	playTheGame(firstNumber, secondNumber, subtraction, answer)
 
-	reader:=bufio.NewReader(os.Stdin)
+}
+
+func playTheGame(firstNumber, secondNumber, subtraction, answer int) {
+	reader := bufio.NewReader(os.Stdin)
 	//display a welcome/intstructions
 	fmt.Println("Guess the number game")
 	fmt.Println("---------------------")
